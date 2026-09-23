@@ -1,1 +1,1 @@
-web: cd backend && gunicorn -w 4 -b 0.0.0.0:$PORT app.main:app --worker-class uvicorn.workers.UvicornWorker
+web: cd backend && python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT
