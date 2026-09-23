@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ seo_title }}</title>
+<meta name="description" content="{{ seo_description }}">
+<link rel="canonical" href="/washing-machine-service-{{ slug }}">
+<link rel="stylesheet" href="/static/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "{{ business_name }}",
+  "areaServed": "{{ city_name }}",
+  "telephone": "{{ business_mobile }}",
+  "priceRange": "$$"
+}
+</script>
+</head>
+<body>
+  <main class="city-page">
+    <a href="/" class="back-link">&larr; {{ business_name }}</a>
+    <h1>Washing Machine Repair & Service in {{ city_name }}</h1>
+    <p class="city-intro">{{ intro_copy }}</p>
+
+    <section class="city-services">
+      <h2>Services available in {{ city_name }}</h2>
+      <ul>
+        {% for s in services %}
+        <li>{{ s.name }} &mdash; {{ s.description }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="city-cta">
+      <a class="btn btn-primary" href="/?city={{ slug }}#book">Book a technician in {{ city_name }}</a>
+      <a class="btn btn-whatsapp" href="https://wa.me/{{ business_whatsapp }}?text=Hi%2C%20I%20need%20washing%20machine%20service%20in%20{{ city_name }}">WhatsApp us</a>
+      <a class="btn btn-call" href="tel:{{ business_mobile }}">Call {{ business_mobile }}</a>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "WashCare India",
+  "short_name": "WashCare",
+  "description": "Washing machine repair & service booking across India",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#1D6FE0",
+  "icons": [
+    { "src": "/static/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/static/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

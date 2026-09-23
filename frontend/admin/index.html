@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WashCare Admin</title>
+<link rel="stylesheet" href="/static/admin/css/admin.css">
+</head>
+<body>
+
+<div id="login-screen" class="login-screen">
+  <div class="login-card">
+    <h1>WashCare Admin</h1>
+    <p>Sign in to manage bookings, technicians and settings.</p>
+    <form id="login-form">
+      <div class="field"><label for="login-username">Username</label><input id="login-username" required></div>
+      <div class="field"><label for="login-password">Password</label><input id="login-password" type="password" required></div>
+      <button class="btn-full" type="submit">Sign in</button>
+      <p class="error-text" id="login-error"></p>
+    </form>
+  </div>
+</div>
+
+<div id="app-shell" class="app-shell" style="display:none;">
+  <aside class="sidebar">
+    <h1>WashCare Admin</h1>
+    <button class="nav-btn active" data-view="dashboard">Dashboard</button>
+    <button class="nav-btn" data-view="bookings">Bookings</button>
+    <button class="nav-btn" data-view="technicians">Technicians</button>
+    <button class="nav-btn" data-view="enquiries">Enquiries</button>
+    <button class="nav-btn" data-view="settings">Settings</button>
+    <button class="logout" id="logout-btn">Log out</button>
+  </aside>
+
+  <main class="main">
+    <div class="topbar"><h2 id="view-title">Dashboard</h2></div>
+
+    <section id="view-dashboard">
+      <div class="stat-grid" id="stat-grid"></div>
+    </section>
+
+    <section id="view-bookings" style="display:none;">
+      <div class="tabs" id="booking-status-tabs"></div>
+      <table>
+        <thead><tr>
+          <th>Booking ID</th><th>Customer</th><th>Mobile</th><th>City</th><th>Service</th>
+          <th>Preferred</th><th>Status</th><th>Technician</th><th>Created</th>
+        </tr></thead>
+        <tbody id="bookings-body"></tbody>
+      </table>
+    </section>
+
+    <section id="view-technicians" style="display:none;">
+      <div class="panel">
+        <h3>Add technician</h3>
+        <form id="tech-form" class="settings-grid" style="grid-template-columns:1fr 1fr;">
+          <input id="tech-name" placeholder="Name" required>
+          <input id="tech-mobile" placeholder="Mobile" required>
+          <input id="tech-whatsapp" placeholder="WhatsApp">
+          <select id="tech-city" required></select>
+          <input id="tech-area" placeholder="Area">
+          <input id="tech-services" placeholder="Services (comma separated slugs)">
+          <button class="btn-full" style="grid-column:span 2;" type="submit">Add technician</button>
+        </form>
+      </div>
+      <table>
+        <thead><tr><th>Name</th><th>Mobile</th><th>WhatsApp</th><th>City</th><th>Area</th><th>Available</th><th></th></tr></thead>
+        <tbody id="technicians-body"></tbody>
+      </table>
+    </section>
+
+    <section id="view-enquiries" style="display:none;">
+      <table>
+        <thead><tr><th>Name</th><th>Mobile</th><th>City</th><th>Message</th><th>Received</th></tr></thead>
+        <tbody id="enquiries-body"></tbody>
+      </table>
+    </section>
+
+    <section id="view-settings" style="display:none;">
+      <div class="panel">
+        <h3>Business settings</h3>
+        <p style="color:#55677D; font-size:0.85rem; margin-top:-8px;">These values power every Call/WhatsApp button on the public site — nothing is hard-coded.</p>
+        <form id="settings-form" class="settings-grid">
+          <input id="set-name" placeholder="Business name">
+          <input id="set-mobile" placeholder="Business mobile (e.g. +91 90000 00000)">
+          <input id="set-whatsapp" placeholder="Business WhatsApp number">
+          <input id="set-email" placeholder="Business email">
+          <input id="set-hours" placeholder="Working hours">
+          <button class="btn-full" type="submit">Save settings</button>
+          <p id="settings-status" style="font-size:0.85rem;"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="/static/js/api.js"></script>
+<script src="/static/admin/js/admin.js"></script>
+</body>
+</html>

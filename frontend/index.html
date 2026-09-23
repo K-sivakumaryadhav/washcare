@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WashCare India — Washing Machine Repair & Service at Your Doorstep</title>
+<meta name="description" content="Book trusted washing machine repair, installation and service across major Indian cities. Fast doorstep visits for all major brands.">
+<link rel="manifest" href="/static/manifest.json">
+<meta name="theme-color" content="#1D6FE0">
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand">
+      <span class="brand-mark">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="13" r="7" stroke="white" stroke-width="2"/><path d="M4 6h16" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+      </span>
+      WashCare India
+    </a>
+    <nav class="main-nav">
+      <a href="/#home">Home</a>
+      <a href="/#services">Services</a>
+      <a href="/#cities">Cities</a>
+      <a href="/#how-it-works">How It Works</a>
+      <a href="/about.html">About Us</a>
+      <a href="/contact.html">Contact Us</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-outline" id="header-call" href="tel:">Call Now</a>
+      <a class="btn btn-whatsapp" id="header-whatsapp" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a>
+      <button class="btn btn-primary" data-open-booking>Book a Service</button>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/#home">Home</a>
+    <a href="/#services">Services</a>
+    <a href="/#cities">Cities</a>
+    <a href="/#how-it-works">How It Works</a>
+    <a href="/about.html">About Us</a>
+    <a href="/contact.html">Contact Us</a>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-copy">
+      <h1>Washing machine service at your doorstep</h1>
+      <p>Book a trusted washing machine technician near you. Fast, reliable and convenient service across India.</p>
+      <div class="hero-actions">
+        <a class="btn btn-call" id="hero-call" href="tel:">Call Now</a>
+        <a class="btn btn-whatsapp" id="hero-whatsapp" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a>
+        <button class="btn btn-primary" data-open-booking>Book a Service</button>
+      </div>
+      <div class="hero-trust-line">
+        <span>All major brands</span>
+        <span>Doorstep visits</span>
+        <span>Pan-India cities</span>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="55" y="30" width="190" height="240" rx="18" stroke="#1D6FE0" stroke-width="4" fill="#EEF4FC"/>
+        <rect x="75" y="50" width="150" height="26" rx="6" stroke="#0F2A4A" stroke-width="3"/>
+        <circle cx="95" cy="63" r="4" fill="#22C35E"/>
+        <circle cx="150" cy="170" r="62" stroke="#0F2A4A" stroke-width="4" fill="white"/>
+        <circle cx="150" cy="170" r="46" stroke="#1D6FE0" stroke-width="3" stroke-dasharray="6 8"/>
+        <circle cx="150" cy="170" r="6" fill="#0F2A4A"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head">
+      <h2>What can we fix for you?</h2>
+      <p>Tell us the problem — we'll match you with a technician who handles it.</p>
+    </div>
+    <div class="chip-row" id="service-chips">
+      <!-- populated by JS from /api/catalog/services -->
+    </div>
+  </div>
+</section>
+
+<section class="section section-tint" id="how-it-works">
+  <div class="container">
+    <div class="section-head">
+      <h2>How it works</h2>
+      <p>From booking to a completed repair, in five simple steps.</p>
+    </div>
+    <div class="flow">
+      <div class="flow-step"><h3>Select your city</h3><p>Choose your state, city and area or pincode.</p></div>
+      <div class="flow-step"><h3>Choose a service</h3><p>Repair, installation, uninstallation or general service.</p></div>
+      <div class="flow-step"><h3>Share your details</h3><p>Tell us the problem and your preferred date and time.</p></div>
+      <div class="flow-step"><h3>Get assigned a technician</h3><p>Our team confirms your booking and assigns a local technician.</p></div>
+      <div class="flow-step"><h3>Service completed</h3><p>Your technician arrives at your doorstep and fixes it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="cities">
+  <div class="container">
+    <div class="section-head">
+      <h2>Service available across India</h2>
+      <p>Starting in these cities, with more added regularly.</p>
+    </div>
+    <div class="city-filter">
+      <select id="state-filter"><option value="">All states</option></select>
+    </div>
+    <div class="city-grid" id="city-grid"></div>
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="container">
+    <div class="section-head">
+      <h2>Why choose us?</h2>
+    </div>
+    <div class="trust-list">
+      <div class="trust-item">
+        <span class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1v-9z" stroke="#1D6FE0" stroke-width="2" stroke-linejoin="round"/></svg>
+        </span>
+        <div><h3>Doorstep service</h3><p>Technicians come to you — no need to carry your machine anywhere.</p></div>
+      </div>
+      <div class="trust-item">
+        <span class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l3 6 6 1-4.5 4 1 6-5.5-3-5.5 3 1-6L3 10l6-1 3-6z" stroke="#1D6FE0" stroke-width="2" stroke-linejoin="round"/></svg>
+        </span>
+        <div><h3>Experienced technicians</h3><p>Trained to work on all major washing machine brands and models.</p></div>
+      </div>
+      <div class="trust-item">
+        <span class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M4 12l4-4M4 12l4 4" stroke="#1D6FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <div><h3>Easy booking</h3><p>Book online, over WhatsApp, or with a single phone call.</p></div>
+      </div>
+      <div class="trust-item">
+        <span class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#1D6FE0" stroke-width="2"/><path d="M12 7v5l3 3" stroke="#1D6FE0" stroke-width="2" stroke-linecap="round"/></svg>
+        </span>
+        <div><h3>Fast response</h3><p>Our team typically reaches out within minutes of your booking.</p></div>
+      </div>
+      <div class="trust-item">
+        <span class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#1D6FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="4" width="18" height="16" rx="3" stroke="#1D6FE0" stroke-width="2"/></svg>
+        </span>
+        <div><h3>Transparent service</h3><p>Clear communication on the problem and the visit before any work begins.</p></div>
+      </div>
+      <div class="trust-item">
+        <span class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 21c1-4 4-6 9-6s8 2 9 6" stroke="#1D6FE0" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="8" r="4" stroke="#1D6FE0" stroke-width="2"/></svg>
+        </span>
+        <div><h3>Major cities across India</h3><p>Growing network of technicians in cities nationwide.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Brands we service</h2>
+    </div>
+    <div class="brand-row" id="brand-row"></div>
+  </div>
+</section>
+
+<section class="section section-tint" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-details">
+        <h2>Get in touch</h2>
+        <p><strong>WashCare India</strong></p>
+        <p id="contact-phone">Phone: —</p>
+        <p id="contact-whatsapp">WhatsApp: —</p>
+        <p id="contact-email">Email: —</p>
+        <p id="contact-hours">Working hours: —</p>
+      </div>
+      <div>
+        <h3>Send us a message</h3>
+        <form class="form-grid" id="enquiry-form">
+          <div class="form-row"><label for="eq-name">Name</label><input id="eq-name" required></div>
+          <div class="form-row"><label for="eq-mobile">Mobile number</label><input id="eq-mobile" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" required></div>
+          <div class="form-row"><label for="eq-city">City</label><input id="eq-city"></div>
+          <div class="form-row"><label for="eq-message">Message</label><textarea id="eq-message"></textarea></div>
+          <button class="btn btn-primary btn-block" type="submit">Send message</button>
+          <p id="enquiry-status" style="font-size:0.85rem;"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="brand" style="color:#fff;">WashCare India</div>
+      <p style="color:#9FB2C9; margin-top:10px; max-width:44ch;">Connecting customers with verified washing machine technicians across India.</p>
+    </div>
+    <div class="footer-links">
+      <h3>Company</h3>
+      <a href="/about.html">About Us</a>
+      <a href="/contact.html">Contact Us</a>
+      <a href="/#how-it-works">How It Works</a>
+    </div>
+    <div class="footer-links">
+      <h3>Legal</h3>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms & Conditions</a>
+      <a href="/cancellation-policy.html">Cancellation Policy</a>
+      <a href="/service-policy.html">Service Policy</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    &copy; <span id="year"></span> WashCare India. All rights reserved.
+  </div>
+</footer>
+
+<!-- Booking Modal -->
+<div class="modal-backdrop" id="booking-backdrop">
+  <div class="modal" id="booking-modal">
+    <div id="booking-form-view">
+      <div class="modal-head">
+        <h2 style="margin:0;">Book a service</h2>
+        <button class="modal-close" data-close-booking>&times;</button>
+      </div>
+      <form class="form-grid" id="booking-form">
+        <div class="two-col">
+          <div class="form-row"><label for="bk-name">Customer name *</label><input id="bk-name" required></div>
+          <div class="form-row"><label for="bk-mobile">Mobile number *</label><input id="bk-mobile" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" required></div>
+        </div>
+        <div class="two-col">
+          <div class="form-row"><label for="bk-whatsapp">WhatsApp number</label><input id="bk-whatsapp" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit number (optional)"></div>
+          <div class="form-row"><label for="bk-state">State *</label><select id="bk-state" required></select></div>
+        </div>
+        <div class="two-col">
+          <div class="form-row"><label for="bk-city">City *</label><select id="bk-city" required></select></div>
+          <div class="form-row"><label for="bk-area">Area / Pincode *</label><input id="bk-area" required></div>
+        </div>
+        <div class="form-row" id="bk-city-other-row" style="display:none;">
+          <label for="bk-city-other">Your city name *</label>
+          <input id="bk-city-other" placeholder="Type your city name">
+        </div>
+        <div class="two-col">
+          <div class="form-row"><label for="bk-brand">Washing machine brand</label><select id="bk-brand"></select></div>
+          <div class="form-row">
+            <label for="bk-type">Washing machine type</label>
+            <select id="bk-type">
+              <option value="">Select type</option>
+              <option>Front Load</option>
+              <option>Top Load</option>
+              <option>Semi Automatic</option>
+              <option>Fully Automatic</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row"><label for="bk-service">Service required *</label><select id="bk-service" required></select></div>
+        <div class="form-row"><label for="bk-problem">Problem description</label><textarea id="bk-problem"></textarea></div>
+        <div class="two-col">
+          <div class="form-row"><label for="bk-date">Preferred date</label><input type="date" id="bk-date"></div>
+          <div class="form-row"><label for="bk-time">Preferred time</label><input type="time" id="bk-time"></div>
+        </div>
+        <div class="form-row"><label for="bk-address">Address</label><textarea id="bk-address"></textarea></div>
+        <p id="booking-error" style="color:#C0392B; font-size:0.85rem; display:none;"></p>
+        <button class="btn btn-primary btn-block" type="submit">Book Service</button>
+      </form>
+    </div>
+
+    <div id="booking-confirm-view" class="confirmation" style="display:none;">
+      <div class="modal-head">
+        <h2 style="margin:0;">Booking confirmed</h2>
+        <button class="modal-close" data-close-booking>&times;</button>
+      </div>
+      <span class="status-badge">Request received</span>
+      <p>Your service request has been received successfully. Our service team will contact you shortly.</p>
+      <div class="confirm-grid">
+        <div><span>Booking ID: </span><strong id="cf-id"></strong></div>
+        <div><span>Customer name: </span><strong id="cf-name"></strong></div>
+        <div><span>City: </span><strong id="cf-city"></strong></div>
+        <div><span>Service: </span><strong id="cf-service"></strong></div>
+        <div><span>Preferred date/time: </span><strong id="cf-datetime"></strong></div>
+      </div>
+      <a class="btn btn-whatsapp btn-block" id="cf-whatsapp" target="_blank" rel="noopener">Notify us on WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<a class="fab-whatsapp" id="fab-whatsapp" href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp us">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1112 20zm4.4-5.6c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8.9-.3.2-.6.1a6.5 6.5 0 01-3.2-2.8c-.2-.4.2-.4.6-1.3.1-.2 0-.4 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-1 2.3c0 1.3 1 2.7 1.1 2.9s2 3 4.7 4.2a5.4 5.4 0 003.3.6 2.8 2.8 0 001.8-1.3c.2-.4.2-.7.2-.8s-.2-.2-.4-.3z"/></svg>
+</a>
+
+<nav class="mobile-action-bar">
+  <a href="tel:" id="bar-call">Call Now</a>
+  <a href="https://wa.me/" target="_blank" rel="noopener" class="action-whatsapp" id="bar-whatsapp">WhatsApp</a>
+  <a href="#book" class="action-book" data-open-booking>Book Service</a>
+</nav>
+
+<script src="/static/js/api.js"></script>
+<script src="/static/js/main.js"></script>
+</body>
+</html>
