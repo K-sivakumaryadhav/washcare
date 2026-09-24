@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
 # Swap DATABASE_URL to a Postgres URL in production, e.g.
-# postgresql+psycopg2://user:password@host:5432/washcare
+# postgresql+psycopg2://user:password@host:5432/washcarecare
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./washcare.db")
 
 connect_args = {"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {}

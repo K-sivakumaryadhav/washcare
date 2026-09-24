@@ -112,9 +112,10 @@ a { color: var(--color-primary); text-decoration: none; }
 .main-nav a:hover { color: var(--color-primary); }
 .header-actions { display: none; gap: 10px; }
 .nav-toggle {
-  display: inline-flex; background: none; border: none; cursor: pointer; padding: 6px;
+  display: inline-flex; flex-direction: column; gap: 4px; justify-content: center; align-items: center;
+  background: none; border: none; cursor: pointer; padding: 6px;
 }
-.nav-toggle span { display: block; width: 22px; height: 2px; background: var(--color-ink); margin: 5px 0; }
+.nav-toggle span { width: 22px; height: 2px; background: var(--color-ink); }
 
 @media (min-width: 900px) {
   .main-nav { display: flex; }
